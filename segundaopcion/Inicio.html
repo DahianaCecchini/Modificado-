@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de pedido</title>
+    <link rel="stylesheet" href="../segundaopcion/Css/iPadversion.css">
+    <link rel="stylesheet" href="../segundaopcion/Css/Pc.css">
+    
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;}
+
+@media (max-width:650px) { 
+img{
+    height: 10rem;
+    width: 10rem;
+    display: flex;
+    margin-left: 40%;
+    border-radius: 100px;}
+           
+head{
+    max-width: 650px;}
+        
+header{
+    background-image: url("../segundaopcion/Imagenes/food-pizza-wallpaper-preview.jpg");
+    background-position: center;
+    background-size: cover;
+    max-width: 650px;
+    border-radius: 10px;}
+
+nav.encabezado{
+    background-color: darkred;
+    height: 40px;
+    max-width: 650px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;}
+
+h1{
+    grid-column: 1;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    margin-top: 5px;
+    text-align: center;
+    justify-self: center;
+    padding: 3px;
+    width: 200px;}
+
+section{
+    display: grid;
+    grid-template-columns: 1fr 1fr;}
+
+div.productos{
+    grid-column: 1;
+    align-content: center;
+    justify-content: center;}
+            
+button{
+    border-radius: 5px;
+    margin: 1px;
+    padding: 1px;
+    align-items: center;
+    font-size: 15px;
+    color: white;
+    background-color: gray;
+    font-family:italic;}
+         
+button.confirmarPedido{
+    display: block;
+    margin-top: 35px;
+    margin-left: 350px;
+    border-bottom: black;
+    border-radius: 10px;
+    font-size: 20px;
+    color: white;
+    background-color: darkred;
+    width: 200px;}
+
+button.confirmarPedido:active{
+    background-color: gray;}
+
+button.botonReporte{
+    display: block;
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    font-family: italic;}
+        
+button.botonReporte:active{
+    background-color: gray;}
+        
+button.compras{
+    display: block;
+    border-radius: 10px;
+    padding: 3px;
+    align-items: center;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    font-family:italic;}
+        
+button.compras:active{
+    background-color: gray;}
+            
+#confirmarimprimir{
+    text-decoration: none;
+    color: white;}
+
+button.confirmarPedido{
+    border-radius: 10px;
+    padding: 3px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    font-family: italic;
+    inline-size: auto;
+    margin: 10px;}
+        
+button.confirmarPedido:active{
+    background-color: gray;}
+        
+div.segundaColumna{
+    grid-column: 2;}
+      
+ul>li{
+    list-style: none;
+    display: flex;
+    justify-content: space-around;}
+
+ul#carrito{
+    margin-top: 10px;}
+
+input{
+    width: 35px;}
+
+h1.detalleP{
+    inline-size: auto;}
+
+.formulario{
+    margin-top: 50px;
+    font-size: 10px;
+    grid-column: 2;}
+        
+input.nombre{ 
+    width: 200px;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;}
+        
+input.direccion{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;}
+        
+input.numero{
+    width: 100px;
+    display: flex;
+    align-items: center;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;}
+        
+input.telefono{
+    width: 150px;
+    display: flex;
+    align-items: center;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;}
+        
+input.adicional{
+    width: 200px;
+    display: flex;
+    align-items: center;
+    background-color: darkred;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;}
+}
+
+</style>
+<body>
+    <header>
+        <img src="../segundaopcion/Imagenes/Logo maxi pizzas.jpg" alt="Logo">
+    </header>
+<nav class="encabezado">
+    <button class="botonReporte" onclick= redirect(1)>REPORTE</button>
+    <button class="compras" onclick="redirect(2)">INICIO/GASTOS</button>
+</nav>
+<section>
+<div class="productos">
+<h1>PIZZAS</h1>
+<div id="pizzas"></div>
+
+<h1>PIZZAS MEDIANAS</h1>
+<div id="pizzasM"></div>
+
+<h1>PIZZAS CHICAS</h1>
+<div id="pizzasCh"></div>
+
+<h1>EMPANADAS</h1>
+<div id="empanadas"></div>
+
+<h1>PAPAS FRITAS</h1>
+<div id="fritas"></div>
+
+<h1>SANDWICHES CALIENTES</h1>
+<div id="sandwiches"></div>
+
+<h1>BEBIDAS</h1>
+<div id="bebidas"></div>
+
+<h1>EXTRAS</h1>
+<div id="extras"></div>
+</div>
+
+<div class="segundaColumna">
+
+    <h1 class="detalleP">DETALLE PEDIDO</h1>
+    <ul id="carrito">
+        <li>
+            <p>PIZZA</p>
+            CANT.<input id="cantidad" />
+            PRECIO<input id="precio" />
+        </li>
+        <li>
+            <p>PIZZA</p>
+            CANT.<input id="cantidad" />
+            PRECIO<input id="precio" />
+        </li>
+    </ul>
+    <div class="formulario">
+        <form>
+            <input class="nombre" type="text" id="name" placeholder="NOMBRE/IDENTIFICADOR">
+            <span id="identificador"></span>
+            <input class="direccion" type="text" id="domicilio" placeholder="DIRECCION"> 
+            <span id="direccion"></span>
+            <input class="numero" type="number" id="number" placeholder="N°" minlength="1" maxlength="4">
+            <span id="n"></span> 
+            <input class="telefono" id="celular" type="text" placeholder="CELULAR">
+            <span id="celular2"></span>
+            <input class="adicional" type="text" id="info" placeholder="INFO ADICIONAL">
+            <span id="info2"></span>
+        </form>
+    </div> 
+    <div id="check">
+        <input type="checkbox"  id="miElementoCheckbox"> ROMINA
+        <input type="checkbox"  id="miElementoCheckbox2"> JUAN
+            <div id="msg"></div>
+            <div id="msg2"></div> 
+    </div>  
+    <button class="confirmarPedido" onclick="redirect(3)">CONFIRMAR/IMPRIMIR</button>
+</div>
+
+</section>
+
+<script src="../segundaopcion/JavaScript/redireccionBotones.js"></script>
+<script src="../segundaopcion/JavaScript/checks.js"></script>
+<script src="../segundaopcion/JavaScript/categorias.js"></script>
+<script src="../segundaopcion/JavaScript/validacioncamposcontacto.js"></script>
+</body>
+</html>
